@@ -57,10 +57,23 @@ try:
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
-        sendmsg('takeoff')
+        sendmsg('takeoff', 6)
 
-        # Review the (SDK) Software Development Kit resource for Drone Commands
-        # Delete these comments before writing your program
+        sendmsg('up 30', 6)
+        sendmsg('forward 150',6)
+        sendmsg('flip l', 6)
+        sendmsg('up 25', 3)
+        sendmsg('cw 90', 6)
+        sendmsg('flip r', 6)
+        sendmsg('forward 150', 6)
+        sendmsg('up 25', 3)
+        sendmsg('flip f', 6)
+        sendmsg('cw 90', 6)
+        sendmsg('forward 150', 6)
+        sendmsg('cw 180', 6)
+        sendmsg('speed 100', 3)
+        sendmsg('forward 200', 8)
+        sendmsg('flip b', 8)
 
         sendmsg('land')
 
