@@ -59,8 +59,9 @@ try:
 
         sendmsg('command', 0)
         sendmsg('takeoff')
-        sendmsg('up 35', 5)
+        sendmsg('up 25', 5)
         sendmsg('forward 230', 5)
+        sendmsg('go 70 40 70 speed m8', 20)
 
         sendmsg('land')
 
