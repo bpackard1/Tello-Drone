@@ -4,14 +4,11 @@
 
 import threading, socket, sys, time, subprocess
 
-
 # GLOBAL VARIABLES DECLARED HERE....
 host = ''
 port = 9000
-locaddr = (host,port)
-tello_address = ('192.168.10.1', 8889) # Get the Tello drone's address
-
-
+locaddr = (host, port)
+tello_address = ('192.168.10.1', 8889)  # Get the Tello drone's address
 
 # Creates a UDP socketd
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -26,20 +23,20 @@ def recv():
             data, server = sock.recvfrom(1518)
             print(data.decode(encoding="utf-8"))
         except Exception:
-            print ('\n****Keep Eye on Drone****\n')
+            print('\n****Keep Eye on Drone****\n')
             break
 
 
-def sendmsg(msg, sleep = 6):
+def sendmsg(msg, sleep=6):
     print("Sending: " + msg)
     msg = msg.encode(encoding="utf-8")
     sock.sendto(msg, tello_address)
     time.sleep(sleep)
 
+
 # recvThread create
 recvThread = threading.Thread(target=recv)
 recvThread.start()
-
 
 # CREATE FUNCTIONS HERE....
 
@@ -52,17 +49,17 @@ print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
 
-
 try:
     if ready.lower() == 'yes':
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
         sendmsg('takeoff')
-        sendmsg('up 5', 8)
-        sendmsg('forward 200', 8)
-        sendmsg('go 190 0 50 40', 8)
-        sendmsg('curve 25 25 0 25 175 0 30', 6)
+        sendmsg('up 5', 6)
+        sendmsg('forward 200', 6)
+        sendmsg('go 220 0 50 40', 6)
+        sendmsg('curve  100 250 0 -100 250 0 60', 15)
+        sendmsg('cw 180', 6)
         sendmsg('go -200 0 -100 60', 6)
         sendmsg('forward 100', 6)
         sendmsg('flip f', 6)
