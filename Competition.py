@@ -55,14 +55,10 @@ try:
 
         sendmsg('command', 0)
         sendmsg('takeoff')
-        sendmsg('up 5', 6)
-        sendmsg('forward 200', 6)
-        sendmsg('go 220 0 50 40', 6)
-        sendmsg('curve  100 250 0 -100 250 0 60', 15)
-        sendmsg('cw 180', 6)
-        sendmsg('go -200 0 -100 60', 6)
-        sendmsg('forward 100', 6)
-        sendmsg('flip f', 6)
+        sendmsg('up 50', 7)
+        sendmsg('go -200 0 -100 60', 8)
+        sendmsg('forward 50', 8)
+
 
         sendmsg('land')
 
